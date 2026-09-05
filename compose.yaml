@@ -1,0 +1,14 @@
+services:
+  openva:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: openva-local:1.2.0
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    environment:
+      R_LIBS_USER: /home/openva/R/library
+    stdin_open: true
+    tty: true
+    init: true

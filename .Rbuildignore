@@ -1,5 +1,11 @@
 ^\.github$
 ^CRAN-SUBMISSION$
 ^codecov\.yml$
+^Dockerfile$
+^compose\.yaml$
+^\.dockerignore$
+^DOCKER\.md$
+^docker$
+^output$
 vignettes/eava-vignette.Rmd
 vignettes/vacalibration-vignette.Rmd

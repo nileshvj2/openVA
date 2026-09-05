@@ -14,3 +14,4 @@ vignettes/*.pdf
 Tariff.Rcheck
 openVA.Rcheck
 .Rproj.user
+output/

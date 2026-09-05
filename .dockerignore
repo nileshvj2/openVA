@@ -1,0 +1,9 @@
+.git
+.github
+.Rhistory
+.Rproj.user
+*.Rcheck
+check
+output
+vignettes/*.html
+vignettes/*.pdf
