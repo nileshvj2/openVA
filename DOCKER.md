@@ -60,6 +60,36 @@ Run a local script with:
 docker compose run --rm openva Rscript path/to/script.R
 ```
 
+### WHO 2016 sample CSV
+
+The synthetic test file [`input/who2016.csv`](input/who2016.csv) contains all
+200 records from `InterVA5::RandomVA5` (InterVA5 1.1.3): one unique `ID` column
+and 353 indicator columns in their original order. Values are `y` (yes), `n`
+(no), and `-` (missing). The only change from the packaged data is converting
+the missing marker `.` to `-` using `openVA::ConvertData()`.
+
+This is algorithm-ready WHO 2016 indicator data, not a raw questionnaire
+export or a labeled dataset for measuring diagnostic accuracy.
+
+Regenerate the file from the installed InterVA5 sample (overwrites the CSV):
+
+```powershell
+docker compose run --rm openva Rscript scripts/generate_who2016_sample.R
+```
+
+Run the same CSV through either algorithm:
+
+```powershell
+docker compose run --rm openva Rscript scripts/run_who2016.R input/who2016.csv interva5 output/who2016-interva5 h h
+docker compose run --rm openva Rscript scripts/run_who2016.R input/who2016.csv insilico output/who2016-insilico h h 1000
+```
+
+Each run writes `-top-causes.csv`, `-csmf.csv`, and `-individual.csv` files
+under the given output prefix. The InSilicoVA example uses 1,000 iterations
+for a smoke test only; it may report non-convergence and must not be treated
+as a validated analysis. Omit the final `1000` to use the runner's default
+10,000 iterations.
+
 ## 5. Rebuild after source changes
 
 The image contains a source installation of the current checkout. Rebuild it

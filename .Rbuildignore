@@ -7,5 +7,6 @@
 ^DOCKER\.md$
 ^docker$
 ^output$
+^openVA-executor/\.env$
 vignettes/eava-vignette.Rmd
 vignettes/vacalibration-vignette.Rmd

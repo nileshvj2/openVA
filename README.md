@@ -30,6 +30,9 @@ plotVA(fit)
 
 For more examples, see the [package vignette](inst/doc/openVA-vignette.html).
 
+For Docker, PowerShell, and Python execution examples, see the
+[openVA executor guide](openVA-executor/readme-executor.md).
+
 
 ## Installation instructions
 
