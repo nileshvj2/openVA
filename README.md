@@ -2,6 +2,27 @@
 [![R-CMD-check](https://github.com/verbal-autopsy-software/openVA/workflows/R-CMD-check/badge.svg)](https://github.com/verbal-autopsy-software/openVA/actions) [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/openVA)](https://cran.r-project.org/package=openVA)  [![](https://cranlogs.r-pkg.org/badges/openVA)](https://cran.r-project.org/package=openVA) [![](https://cranlogs.r-pkg.org/badges/grand-total/openVA?color=orange)](https://cran.r-project.org/package=openVA)
 [![codecov](https://codecov.io/gh/verbal-autopsy-software/openVA/branch/master/graph/badge.svg?token=P049IXFSVH)](https://app.codecov.io/gh/verbal-autopsy-software/openVA)
 
+## Additions in this fork
+
+This fork builds on the original [openVA project](https://github.com/verbal-autopsy-software/openVA)
+with tooling to simplify setup and pipeline execution:
+
+1. **Docker containerization:** Added a Docker image and Docker Compose setup
+   that package openVA, R, Java, and the required R dependencies, avoiding
+   installation of the R/Java stack on the host. See the [Docker guide](DOCKER.md).
+2. **Python executor:** Added the [openVA-executor](openVA-executor/) folder
+   with a Python notebook to run InterVA-5 and InSilicoVA pipelines through
+   Docker and export results to CSV. The executor uses a local `.env` file
+   to configure the openVA repository path. See the
+   [executor guide](openVA-executor/readme-executor.md).
+3. **Reusable runners and sample data:** Added [R execution scripts](scripts/)
+   for WHO 2016 and PHMRC inputs, plus a
+   [WHO 2016 sample CSV](input/who2016.csv) generated from `RandomVA5` for
+   testing InterVA-5 and InSilicoVA. The PHMRC InterVA route uses trained
+   InterVA, not the standard InterVA-5 engine.
+
+## About openVA
+
 The openVA package implements multiple existing open-source algorithms for coding cause of death from verbal autopsies. It also provides tools for data manipulation tasks commonly used in Verbal Autopsy analysis and implements easy graphical visualization of individual and population level statistics. 
  
 The VA methods implemented in the package include:
